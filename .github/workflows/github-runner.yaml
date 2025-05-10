@@ -1,0 +1,10 @@
+name: Provision Github-Runner
+on: [workflow_dispatch]
+jobs:
+  Github-Runner:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo $PATH
+      - name: Run Github-Runner Setup
+        run: ansible-playbook -i github_runner-internal.blissfulbytes.online, tool-setup.yml -e ansible_user=${{ secrets.SSH_USER }} -e ansible_password=${{ secrets.SSH_PASS }} -e tool_name=github-runner

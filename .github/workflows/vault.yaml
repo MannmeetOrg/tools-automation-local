@@ -1,0 +1,10 @@
+name: Provision Hashicorp Vault
+on: [workflow_dispatch]
+jobs:
+  Vault:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo $PATH
+      - name: Run Vault Setup
+        run: ansible-playbook -i vault-internal.blissfulbytes.online, tool-setup.yml -e ansible_user=${{ secrets.SSH_USER }} -e ansible_password=${{ secrets.SSH_PASS }} -e tool_name=vault

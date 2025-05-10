@@ -1,0 +1,11 @@
+name: Destroy Tool Infra
+on: [workflow_dispatch]
+jobs:
+  Provision:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4
+      - name: Terraform Init
+        run: terraform init
+      - name: Terraform Destroy
+        run: terraform destroy -auto-approve
