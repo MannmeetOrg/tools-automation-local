@@ -7,4 +7,4 @@ jobs:
       - uses: actions/checkout@v4
       - run: echo $PATH
       - name: Run Github-Runner Setup
-        run: ansible-playbook -i github_runner, tool-setup.yml -e ansible_user=${{ secrets.SSH_USER }} -e ansible_password=${{ secrets.SSH_PASS }} -e tool_name=github-runner
+        run: ansible-playbook -i github_runner, tool-setup.yml -e ansible_user=${{ secrets.SSH_USER1 }} -e ansible_password=${{ secrets.SSH_PASS1 }} -e tool_name=github-runner
