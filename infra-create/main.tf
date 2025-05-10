@@ -23,20 +23,20 @@ resource "aws_instance" "tool" {
     ]
   }
 }
-resource "aws_route53_record" "public_record" {
-  zone_id = var.hosted_zone_id
-  name    = var.name
-  type    = "A"
-  ttl     = 10
-  records = [aws_instance.tool.public_ip]
-}
-resource "aws_route53_record" "private_record" {
-  zone_id = var.hosted_zone_id
-  name    = "${var.name}-internal"
-  type    = "A"
-  ttl     = 10
-  records = [aws_instance.tool.private_ip]
-}
+# resource "aws_route53_record" "public_record" {
+#   zone_id = var.hosted_zone_id
+#   name    = var.name
+#   type    = "A"
+#   ttl     = 10
+#   records = [aws_instance.tool.public_ip]
+# }
+# resource "aws_route53_record" "private_record" {
+#   zone_id = var.hosted_zone_id
+#   name    = "${var.name}-internal"
+#   type    = "A"
+#   ttl     = 10
+#   records = [aws_instance.tool.private_ip]
+# }
 resource "aws_security_group" "infra-sg" {
   name        = "${var.name}-sg"
   description = "${var.name}-sg"
